@@ -95,7 +95,7 @@ routes.post('/users/me/avatar', authMiddleware, multerMiddleware.single('avatar'
   req.user.avatar = buffer;
   await req.user.save();
 
-  res.send();
+  res.status(204).send();
 }, (error, req, res, next) => {
   res.status(400).json({ error: error.message });
 });
